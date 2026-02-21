@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looping Smiley Animation</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 25% 20%, #3a165f 0%, #10071f 45%, #07030f 100%);
+        font-family: "Inter", "Segoe UI", sans-serif;
+        overflow: hidden;
+      }
+
+      .glow {
+        position: absolute;
+        width: min(65vmin, 560px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        filter: blur(46px);
+        background: conic-gradient(from 0deg, #f6df65, #f49ac2, #7fd7ff, #f6df65);
+        opacity: 0.24;
+        animation: spin 9s linear infinite;
+      }
+
+      .face {
+        width: min(55vmin, 420px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        position: relative;
+        background: radial-gradient(circle at 30% 28%, #fff9a6 0 16%, #ffe650 45%, #ffca1b 75%, #f7a000 100%);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), inset 0 -10px 28px rgba(119, 64, 0, 0.3), inset 0 10px 28px rgba(255, 255, 255, 0.5);
+        animation: bounce 2.4s ease-in-out infinite;
+      }
+
+      .eye {
+        position: absolute;
+        width: 13%;
+        aspect-ratio: 1;
+        background: #241400;
+        border-radius: 50%;
+        top: 34%;
+        animation: blink 4s infinite;
+        transform-origin: center;
+      }
+
+      .eye.left { left: 27%; }
+      .eye.right { right: 27%; }
+
+      .mouth {
+        position: absolute;
+        width: 44%;
+        height: 23%;
+        left: 50%;
+        bottom: 22%;
+        transform: translateX(-50%);
+        border-bottom: 16px solid #2f1800;
+        border-radius: 0 0 999px 999px;
+        animation: grin 2.4s ease-in-out infinite;
+      }
+
+      .mouth::before {
+        content: "";
+        position: absolute;
+        inset: 18% 10% auto;
+        height: 56%;
+        border-radius: 0 0 999px 999px;
+        background: linear-gradient(#ff7ba8 20%, #ef4e82 100%);
+        opacity: 0.85;
+      }
+
+      .caption {
+        position: absolute;
+        bottom: 7vh;
+        color: #fff6cc;
+        font-size: clamp(1rem, 2.4vw, 1.25rem);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+
+      @keyframes blink {
+        0%, 43%, 47%, 100% { transform: scaleY(1); }
+        45% { transform: scaleY(0.06); }
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-9px) rotate(-3deg); }
+        50% { transform: translateY(2px) rotate(0deg); }
+        75% { transform: translateY(-9px) rotate(3deg); }
+      }
+
+      @keyframes grin {
+        0%, 100% { transform: translateX(-50%) scaleX(1); }
+        50% { transform: translateX(-50%) scaleX(1.08); }
+      }
+
+      @keyframes spin {
+        to { transform: rotate(1turn); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+    <main class="face" role="img" aria-label="A smiling face animation">
+      <span class="eye left"></span>
+      <span class="eye right"></span>
+      <span class="mouth"></span>
+    </main>
+    <p class="caption">Keep Smiling ✨</p>
+  </body>
+</html>
