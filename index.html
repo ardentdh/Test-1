@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Premium Expressive Smiley</title>
+    <title>Infernal Smiley Loop</title>
     <style>
       :root { color-scheme: dark; }
       * { box-sizing: border-box; }
@@ -12,13 +12,17 @@
         margin: 0;
         min-height: 100vh;
         display: grid;
-        place-items: center;
-        overflow: hidden;
+        justify-items: center;
+        align-content: start;
+        padding: 3rem 1rem 5rem;
+        overflow-x: hidden;
+        overflow-y: auto;
         font-family: "Inter", "Segoe UI", sans-serif;
         background:
-          radial-gradient(circle at 20% 20%, #5f2fbe 0 20%, transparent 46%),
-          radial-gradient(circle at 78% 30%, #1177a8 0 16%, transparent 42%),
-          radial-gradient(circle at 50% 120%, #2a0b55 0 44%, #080214 86%);
+          radial-gradient(circle at 50% 120%, #000 0 40%, #090102 78%),
+          radial-gradient(circle at 20% 20%, #5b0000 0 15%, transparent 40%),
+          radial-gradient(circle at 80% 25%, #3b0000 0 14%, transparent 42%),
+          linear-gradient(180deg, #140102, #050001 72%);
       }
 
       .scene {
@@ -29,41 +33,41 @@
         place-items: center;
       }
 
-      .aurora {
+      .aura {
         position: absolute;
         inset: 8%;
         border-radius: 50%;
-        filter: blur(54px);
-        background: conic-gradient(from 160deg, #fff4a2, #ff9ccf, #95e2ff, #bca5ff, #fff4a2);
-        opacity: 0.32;
-        animation: spin 14s linear infinite;
+        filter: blur(56px);
+        background: conic-gradient(from 140deg, #ff6a00, #ff1818, #7f0000, #ff6a00);
+        opacity: 0.3;
+        animation: spin 12s linear infinite;
       }
 
       .ring {
         position: absolute;
         inset: 15%;
         border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 48px rgba(126, 216, 255, 0.24), inset 0 0 26px rgba(255, 255, 255, 0.08);
-        animation: pulse 3.4s ease-in-out infinite;
+        border: 2px solid rgba(255, 120, 120, 0.26);
+        box-shadow: 0 0 56px rgba(255, 40, 40, 0.32), inset 0 0 24px rgba(255, 126, 0, 0.17);
+        animation: pulse 3.2s ease-in-out infinite;
       }
 
-      .sparkle {
+      .ember {
         position: absolute;
-        width: 12px;
+        width: 11px;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: radial-gradient(circle, #fff 12%, #98ebff 45%, transparent 74%);
-        filter: drop-shadow(0 0 10px #9ee9ff);
-        animation: drift 5.8s ease-in-out infinite;
+        background: radial-gradient(circle, #ffd8a0 10%, #ff3d1f 50%, transparent 74%);
+        filter: drop-shadow(0 0 10px rgba(255, 72, 40, 0.95));
+        animation: emberDrift 6s ease-in-out infinite;
       }
 
-      .s1 { top: 18%; left: 16%; animation-delay: -0.8s; }
-      .s2 { top: 14%; right: 20%; animation-delay: -2.2s; }
-      .s3 { bottom: 20%; left: 17%; animation-delay: -1.4s; }
-      .s4 { bottom: 16%; right: 16%; animation-delay: -3.5s; }
-      .s5 { top: 48%; left: 8%; animation-delay: -4.1s; }
-      .s6 { top: 56%; right: 9%; animation-delay: -2.9s; }
+      .e1 { top: 18%; left: 15%; animation-delay: -0.7s; }
+      .e2 { top: 13%; right: 18%; animation-delay: -2.4s; }
+      .e3 { bottom: 20%; left: 17%; animation-delay: -1.5s; }
+      .e4 { bottom: 15%; right: 14%; animation-delay: -3.8s; }
+      .e5 { top: 50%; left: 7%; animation-delay: -4.2s; }
+      .e6 { top: 57%; right: 8%; animation-delay: -2.9s; }
 
       .face {
         width: min(58vmin, 450px);
@@ -72,26 +76,15 @@
         position: relative;
         z-index: 2;
         background:
-          radial-gradient(circle at 27% 20%, rgba(255, 255, 255, 0.9) 0 12%, transparent 24%),
-          radial-gradient(circle at 68% 73%, #ffb42c 0 19%, transparent 43%),
-          radial-gradient(circle at 52% 48%, #ffee6d 0 46%, #ffd233 73%, #f7a100 100%);
+          radial-gradient(circle at 29% 20%, rgba(255, 211, 164, 0.55) 0 11%, transparent 23%),
+          radial-gradient(circle at 70% 72%, #b70000 0 20%, transparent 44%),
+          radial-gradient(circle at 50% 50%, #ff3e2e 0 44%, #b10606 73%, #4e0000 100%);
         box-shadow:
-          0 34px 75px rgba(0, 0, 0, 0.47),
-          inset 0 -14px 30px rgba(122, 61, 0, 0.27),
-          inset 0 14px 25px rgba(255, 255, 255, 0.6);
-        animation: float 3s ease-in-out infinite;
-      }
-
-      .face::before {
-        content: "";
-        position: absolute;
-        width: 30%;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        top: 10%;
-        left: 11%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.75), transparent 70%);
-        filter: blur(1px);
+          0 35px 75px rgba(0, 0, 0, 0.63),
+          0 0 58px rgba(255, 40, 0, 0.28),
+          inset 0 -15px 30px rgba(35, 0, 0, 0.56),
+          inset 0 10px 22px rgba(255, 160, 140, 0.2);
+        animation: hover 2.8s ease-in-out infinite;
       }
 
       .brow {
@@ -99,50 +92,47 @@
         width: 16%;
         height: 5%;
         border-radius: 999px;
-        background: #3a2100;
+        background: #240000;
         top: 24%;
-        animation: browDance 6s ease-in-out infinite;
+        animation: browTension 4.8s ease-in-out infinite;
       }
-
-      .brow.left { left: 22%; transform: rotate(-14deg); }
-      .brow.right { right: 22%; transform: rotate(14deg); }
+      .brow.left { left: 21%; transform: rotate(-20deg); }
+      .brow.right { right: 21%; transform: rotate(20deg); }
 
       .eye {
         position: absolute;
         width: 14%;
         aspect-ratio: 1;
-        background: #2f1a00;
+        background: #170000;
         border-radius: 50%;
         top: 34%;
         overflow: hidden;
         transform-origin: center;
-        animation: blink 4.4s infinite;
-        box-shadow: inset 0 -3px 5px rgba(255, 212, 117, 0.28);
+        animation: blink 4.3s infinite;
+        box-shadow: inset 0 -2px 5px rgba(255, 80, 20, 0.22);
       }
-
       .eye.left { left: 26%; }
       .eye.right { right: 26%; }
 
       .pupil {
         position: absolute;
-        width: 42%;
+        width: 46%;
         aspect-ratio: 1;
-        background: #0d0a08;
+        background: #000;
         border-radius: 50%;
-        top: 30%;
-        left: 30%;
-        animation: glance 6s ease-in-out infinite;
+        top: 29%;
+        left: 27%;
+        animation: glance 6.5s ease-in-out infinite;
       }
-
       .pupil::after {
         content: "";
         position: absolute;
         width: 35%;
         aspect-ratio: 1;
         border-radius: 50%;
-        top: 10%;
+        top: 11%;
         left: 12%;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 109, 80, 0.9);
       }
 
       .cheek {
@@ -151,10 +141,9 @@
         aspect-ratio: 1;
         border-radius: 50%;
         top: 56%;
-        background: radial-gradient(circle, rgba(255, 148, 166, 0.64), rgba(255, 126, 145, 0.14) 66%, transparent 78%);
-        animation: blush 3s ease-in-out infinite;
+        background: radial-gradient(circle, rgba(255, 68, 53, 0.68), rgba(159, 0, 0, 0.22) 66%, transparent 78%);
+        animation: heat 3.2s ease-in-out infinite;
       }
-
       .cheek.left { left: 16.5%; }
       .cheek.right { right: 16.5%; }
 
@@ -165,20 +154,18 @@
         left: 50%;
         bottom: 20%;
         transform: translateX(-50%);
-        border-bottom: 18px solid #311900;
+        border-bottom: 18px solid #1b0000;
         border-radius: 0 0 999px 999px;
-        animation: smileMorph 3s ease-in-out infinite;
+        animation: grin 2.8s ease-in-out infinite;
       }
-
       .mouth::before {
         content: "";
         position: absolute;
         inset: 18% 9% auto;
         height: 58%;
         border-radius: 0 0 999px 999px;
-        background: linear-gradient(#ff9ac0 15%, #ef4f83 88%);
+        background: linear-gradient(#ff7b61 10%, #b3003b 90%);
       }
-
       .mouth::after {
         content: "";
         position: absolute;
@@ -187,68 +174,58 @@
         top: -2px;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 0 0 16px 16px;
-        opacity: 0.9;
+        background: rgba(255, 205, 180, 0.9);
+        border-radius: 0 0 14px 14px;
       }
 
       .caption {
-        position: absolute;
-        bottom: 5.5vh;
-        color: #fff8d7;
-        font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+        margin-top: 1.5rem;
+        color: #ffb9a9;
+        font-size: clamp(0.95rem, 2.3vw, 1.2rem);
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        letter-spacing: 0.11em;
-        text-shadow: 0 3px 16px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
       }
 
       @keyframes spin { to { transform: rotate(1turn); } }
-
       @keyframes pulse {
-        0%, 100% { transform: scale(0.975); opacity: 0.55; }
-        50% { transform: scale(1.03); opacity: 0.88; }
+        0%, 100% { transform: scale(0.97); opacity: 0.5; }
+        50% { transform: scale(1.03); opacity: 0.85; }
       }
-
-      @keyframes drift {
-        0%, 100% { transform: translateY(0) scale(1); opacity: 0.68; }
-        50% { transform: translateY(-12px) scale(1.4); opacity: 1; }
+      @keyframes emberDrift {
+        0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+        50% { transform: translateY(-12px) scale(1.35); opacity: 1; }
       }
-
-      @keyframes float {
-        0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-        25% { transform: translateY(-10px) rotate(-2.5deg) scale(1.01); }
-        50% { transform: translateY(1px) rotate(0deg) scale(1); }
-        75% { transform: translateY(-10px) rotate(2.5deg) scale(1.01); }
+      @keyframes hover {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-10px) rotate(-2deg); }
+        75% { transform: translateY(-10px) rotate(2deg); }
       }
-
       @keyframes blink {
-        0%, 40%, 46%, 72%, 76%, 100% { transform: scaleY(1); }
-        43%, 74% { transform: scaleY(0.08); }
+        0%, 42%, 48%, 72%, 77%, 100% { transform: scaleY(1); }
+        45%, 74% { transform: scaleY(0.08); }
       }
-
       @keyframes glance {
-        0%, 100% { transform: translateX(0) translateY(0); }
-        20% { transform: translateX(-14%) translateY(4%); }
-        45% { transform: translateX(16%) translateY(-3%); }
-        70% { transform: translateX(-6%) translateY(3%); }
+        0%, 100% { transform: translateX(0); }
+        20% { transform: translateX(-14%); }
+        48% { transform: translateX(16%); }
+        70% { transform: translateX(-6%); }
       }
-
-      @keyframes browDance {
+      @keyframes browTension {
         0%, 100% { translate: 0 0; }
-        20% { translate: 0 -3px; }
-        50% { translate: 0 1px; }
-        80% { translate: 0 -2px; }
+        50% { translate: 0 -4px; }
       }
-
-      @keyframes smileMorph {
+      @keyframes grin {
         0%, 100% { transform: translateX(-50%) scaleX(1) scaleY(1); }
-        30% { transform: translateX(-50%) scaleX(1.08) scaleY(1.05); }
-        60% { transform: translateX(-50%) scaleX(1.14) scaleY(0.96); }
+        50% { transform: translateX(-50%) scaleX(1.14) scaleY(0.95); }
+      }
+      @keyframes heat {
+        0%, 100% { transform: scale(1); opacity: 0.75; }
+        50% { transform: scale(1.1); opacity: 1; }
       }
 
-      @keyframes blush {
-        0%, 100% { transform: scale(1); opacity: 0.75; }
-        50% { transform: scale(1.09); opacity: 1; }
+      @media (max-height: 740px) {
+        body { padding-bottom: 3rem; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -258,26 +235,25 @@
   </head>
   <body>
     <section class="scene" aria-hidden="true">
-      <div class="aurora"></div>
+      <div class="aura"></div>
       <div class="ring"></div>
-      <span class="sparkle s1"></span>
-      <span class="sparkle s2"></span>
-      <span class="sparkle s3"></span>
-      <span class="sparkle s4"></span>
-      <span class="sparkle s5"></span>
-      <span class="sparkle s6"></span>
+      <span class="ember e1"></span>
+      <span class="ember e2"></span>
+      <span class="ember e3"></span>
+      <span class="ember e4"></span>
+      <span class="ember e5"></span>
+      <span class="ember e6"></span>
+      <main class="face" role="img" aria-label="A dark red hellish looping smiley animation">
+        <span class="brow left"></span>
+        <span class="brow right"></span>
+        <span class="cheek left"></span>
+        <span class="cheek right"></span>
+        <span class="eye left"><span class="pupil"></span></span>
+        <span class="eye right"><span class="pupil"></span></span>
+        <span class="mouth"></span>
+      </main>
     </section>
 
-    <main class="face" role="img" aria-label="A premium expressive looping smiley face animation">
-      <span class="brow left"></span>
-      <span class="brow right"></span>
-      <span class="cheek left"></span>
-      <span class="cheek right"></span>
-      <span class="eye left"><span class="pupil"></span></span>
-      <span class="eye right"><span class="pupil"></span></span>
-      <span class="mouth"></span>
-    </main>
-
-    <p class="caption">Premium Joy Loop ✨</p>
+    <p class="caption">Infernal Joy Loop</p>
   </body>
 </html>
